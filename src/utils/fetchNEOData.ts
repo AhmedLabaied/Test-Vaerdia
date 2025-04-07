@@ -18,12 +18,21 @@ export async function fetchNEOData(): Promise<ChartData[]> {
         min: parseFloat(min.toFixed(3)),
         max: parseFloat(max.toFixed(3)),
         avg: (min + max) / 2,
+        orbiting_body:
+          neo.close_approach_data && neo.close_approach_data.length > 0
+            ? neo.close_approach_data[0].orbiting_body
+            : "Unknown"
       };
     });
 
-    chartData.sort((a, b) => b.avg - a.avg); // sorting the data descending by avg
+    chartData.sort((a, b) => b.avg - a.avg);
 
-    return chartData.map(({ name, min, max }) => ({ name, min, max }));
+    return chartData.map(({ name, min, max, orbiting_body }) => ({
+      name,
+      min,
+      max,
+      orbiting_body,
+    }));
   } catch (error) {
     console.error("Error fetching NEO data:", error);
     return [];

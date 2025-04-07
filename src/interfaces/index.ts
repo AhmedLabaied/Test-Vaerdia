@@ -1,16 +1,20 @@
 //this file contains the app interfaces 
-
 export interface DiameterRange {
     estimated_diameter_min: number;
     estimated_diameter_max: number;
   }
   
   export interface NearEarthObject {
-    id: string;
     name: string;
     estimated_diameter: {
-      kilometers: DiameterRange;
+      kilometers: {
+        estimated_diameter_min: number;
+        estimated_diameter_max: number;
+      };
     };
+    close_approach_data: {
+      orbiting_body: string;
+    }[];
   }
   
   export interface ChartData {
