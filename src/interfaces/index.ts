@@ -1,5 +1,4 @@
 //this file contains the app interfaces 
-
 export interface DiameterRange {
     estimated_diameter_min: number;
     estimated_diameter_max: number;

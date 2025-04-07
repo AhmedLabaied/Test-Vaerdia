@@ -1,5 +1,4 @@
 //this file contains the function to fetch the chart data
-
 import axios from "axios";
 import { NearEarthObject, ChartData } from "../interfaces";
 
